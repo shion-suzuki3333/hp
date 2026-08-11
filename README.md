@@ -1,40 +1,38 @@
-# 大学生個人HP（Astro）
+# 鈴木 志音 — 個人ページ
 
-名前・大学・研究・参加歴・連絡先を載せた、1ページ構成の個人サイトです。文言は仮データです。
+埼玉大学大学院の個人ホームページです。研究・参加歴・連絡先を1ページにまとめています。
 
-## 必要な環境
+**公開 URL:** https://shion-suzuki3333.github.io/hp/
 
-- Node.js 22.12 以上
+## 開発
 
-## 使い方
+Node.js 22.12 以上が必要です。
 
 ```bash
 npm install
 npm run dev
 ```
 
-ブラウザで表示された URL（通常は `http://localhost:4321`）を開きます。
-
-本番用の静的ファイルを出す場合:
+ローカル確認は通常 `http://localhost:4321` です。GitHub Pages と同じパス（`/hp`）で見る場合は `http://localhost:4321/hp/` を開いてください。
 
 ```bash
-npm run build
-npm run preview
+npm run build   # dist/ に静的ファイルを出力
+npm run preview # ビルド結果の確認
 ```
 
-## 公開 URL（GitHub Pages）
+## 公開
 
-- https://shion-suzuki3333.github.io/hp/
+`main` への push で GitHub Actions がビルドし、GitHub Pages に自動デプロイします。
 
-`main` へ push すると GitHub Actions がビルドして自動公開します。
+## コンテンツの編集
 
-## 文言の直し方
+文言はすべて [`src/content.ts`](src/content.ts) にあります。
 
-[`src/content.ts`](src/content.ts) を編集してください。
+| キー | 内容 |
+|------|------|
+| `profile` | 氏名・所属・メール（`emails`: `{ label, address }`） |
+| `research` | 研究テーマと説明 |
+| `activities.items` | 参加歴（日付と一文） |
+| `contact` | 連絡先セクションの見出し・導入文 |
 
-- `profile` … 氏名・大学・研究室・一言・メール（`emails` に `{ label, address }` を並べる）
-- `research` … 研究テーマと説明
-- `activities.items` … 「〜に参加しました」形式の参加歴
-- `contact` … 連絡先セクションの文言
-
-レイアウトや見た目は [`src/pages/index.astro`](src/pages/index.astro) と [`src/styles/global.css`](src/styles/global.css) です。
+見た目は [`src/pages/index.astro`](src/pages/index.astro) と [`src/styles/global.css`](src/styles/global.css) です。
